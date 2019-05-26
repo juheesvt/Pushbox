@@ -7,7 +7,9 @@
 //
 
 #include <iostream>
-#include <ncurses.h>
+#include <stdlib.h>
+#include <string.h>
+#include "ncurses.h"
 #include "Map.hpp"
 using namespace std;
 
@@ -27,7 +29,7 @@ void Print(Map *m) {
     attroff(COLOR_PAIR(2));
     for(int i = 1; i <= 10; i++) {
         for(int j = 1; j <= 10; j++) {
-            if(m->map[i][j].box != nullptr) {
+            if(m->map[i][j].box != nullptr ){
                 attron(COLOR_PAIR(2));
                 mvprintw(1 + i, 1 + j*2, "[]");
                 attroff(COLOR_PAIR(2));
