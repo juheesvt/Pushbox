@@ -11,18 +11,18 @@
 
 
 // 움직일 수 있는 길
-const short ROAD = 1;
+const unsigned char ROAD = 1;
 // 상자를 넣을 목적지
-const short DEST = 2;
+const unsigned char DEST = 2;
 // 벽
-const short WALL = 3;
+const unsigned char WALL = 3;
 // 정사각형을 만들고 남은 빈 공간
-const short SPACE = 4;
+const unsigned char SPACE = 4;
 
 // 캐릭터의 위치
 struct Position {
-    int row = 0;
-    int col = 0;
+    unsigned char row = 0;
+    unsigned char col = 0;
 };
 
 struct Box {
@@ -30,7 +30,7 @@ struct Box {
 };
 
 struct Block {
-    int type = 0;
+    unsigned char type = 0;
     Box *box;
 };
 class Map {
@@ -42,10 +42,15 @@ public:
     Block **map;
     Map();
     ~Map();
-    bool moveUp();
-    bool moveDown();
-    bool moveLeft();
-    bool moveRight();
+    // 방향 움직임 함수
+    char moveUp();
+    char moveDown();
+    char moveLeft();
+    char moveRight();
+    // 게임 클리어 판단 함수
+    bool checkFinish();
+    // 게임 실패 판단 함수(Solver 시에 구현 예정)
+//    bool checkFail();
 };
 
 

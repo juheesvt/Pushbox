@@ -11,7 +11,7 @@
 
 using namespace std;
 
-bool Map::moveUp() {
+char Map::moveUp() {
     // next에 박스가 놓였는지 체크를 한다.
     Block *next = &map[myPos.row - 1][myPos.col];
     // 박스가 있을 경우
@@ -27,7 +27,7 @@ bool Map::moveUp() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.row--;
-                return true;
+                return 2;
             }
         }
     }
@@ -36,13 +36,13 @@ bool Map::moveUp() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.row --;
-            return true;
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
 
-bool Map::moveDown() {
+char Map::moveDown() {
     // next에 박스가 놓였는지 체크를 한다.
     Block *next = &map[myPos.row + 1][myPos.col];
     // 박스가 있을 경우
@@ -58,7 +58,7 @@ bool Map::moveDown() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.row++;
-                return true;
+                return 2;
             }
         }
     }
@@ -67,13 +67,13 @@ bool Map::moveDown() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.row ++;
-            return true;
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
 
-bool Map::moveLeft() {
+char Map::moveLeft() {
     // next에 박스가 놓였는지 체크를 한다.
     Block *next = &map[myPos.row][myPos.col- 1];
     // 박스가 있을 경우
@@ -89,7 +89,7 @@ bool Map::moveLeft() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.col--;
-                return true;
+                return 2;
             }
         }
     }
@@ -98,13 +98,13 @@ bool Map::moveLeft() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.col --;
-            return true;
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
 
-bool Map::moveRight() {
+char Map::moveRight() {
     // next에 박스가 놓였는지 체크를 한다.
     Block *next = &map[myPos.row][myPos.col + 1];
     // 박스가 있을 경우
@@ -120,7 +120,7 @@ bool Map::moveRight() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.col++;
-                return true;
+                return 2;
             }
         }
     }
@@ -129,10 +129,10 @@ bool Map::moveRight() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.col ++;
-            return true;
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
 Map::Map() {
     box = new Box[4];
@@ -204,3 +204,17 @@ Map::~Map() {
     delete[] box;
 }
 
+/*
+4 9 // Character Position ROW COL
+4 4 5 5 6 4 7 5 8 // Box Size Box1 ROW COL
+4 3 3 3 3 3 3 3 4 4 // Map
+3 3 1 2 2 2 2 3 4 4 // 1 = ROAD
+3 1 1 1 3 3 3 3 3 3 // 2 = DESTINATION
+3 1 1 1 5 1 5 1 6 3 // 3 = WALL
+3 3 3 1 1 5 1 5 1 3 // 4 = SPACE
+4 4 3 3 3 4 4 4 4 3 // 5 = BOX
+4 4 4 4 3 3 3 3 3 3 // 6 = CHARACTER
+4 4 4 4 4 4 4 4 4 4
+4 4 4 4 4 4 4 4 4 4
+4 4 4 4 4 4 4 4 4 4
+*/
