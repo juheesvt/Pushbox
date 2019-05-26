@@ -8,7 +8,6 @@
 
 #ifndef PUSHBOX_MAP_H
 #define PUSHBOX_MAP_H
-#define nullptr NULL
 
 
 // 움직일 수 있는 길
@@ -50,6 +49,9 @@ public:
     char moveRight();
     // 게임 클리어 판단 함수
     bool checkFinish();
+    
+    // 맵 로드 함수
+    void loadMap(std::string path);
     // 게임 실패 판단 함수(Solver 시에 구현 예정)
 //    bool checkFail();
 };
