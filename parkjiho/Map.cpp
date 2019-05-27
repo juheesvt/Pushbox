@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "Map.hpp"
 
 using namespace std;
@@ -27,6 +28,8 @@ char Map::moveUp() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.row--;
+                Log l = {1, true};
+                history.push_back(l);
                 return 2;
             }
         }
@@ -36,6 +39,8 @@ char Map::moveUp() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.row --;
+            Log l = {1, false};
+            history.push_back(l);
             return 1;
         }
     }
@@ -58,6 +63,8 @@ char Map::moveDown() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.row++;
+                Log l = {2, true};
+                history.push_back(l);
                 return 2;
             }
         }
@@ -67,6 +74,8 @@ char Map::moveDown() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.row ++;
+            Log l = {2, false};
+            history.push_back(l);
             return 1;
         }
     }
@@ -89,6 +98,8 @@ char Map::moveLeft() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.col--;
+                Log l = {3, true};
+                history.push_back(l);
                 return 2;
             }
         }
@@ -98,6 +109,8 @@ char Map::moveLeft() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.col --;
+            Log l = {3, false};
+            history.push_back(l);
             return 1;
         }
     }
@@ -120,6 +133,8 @@ char Map::moveRight() {
                 next->box = nullptr;
                 // 캐릭터를 이동시킨다.
                 myPos.col++;
+                Log l = {4, true};
+                history.push_back(l);
                 return 2;
             }
         }
@@ -129,70 +144,15 @@ char Map::moveRight() {
         // 이 공간이 ROAD 또는 DEST일 경우에만 움직일 수 있다.
         if(next->type < 3) {
             myPos.col ++;
+            Log l = {4, false};
+            history.push_back(l);
             return 1;
         }
     }
     return 0;
 }
 Map::Map() {
-    box = new Box[4];
-    for(int i = 0; i < 3; i ++)
-        box[i] = Box();
-    map = new Block *[10 + 2];
-    for (int i = 0; i < 10 + 2; i++)
-        map[i] = new Block[10 + 2];
-    
-    map[4][5].box = &box[0];
-    map[5][6].box = &box[1];
-    map[4][7].box = &box[2];
-    map[5][8].box = &box[3];
-    myPos = {4,9};
-    map[2][4].type = DEST;
-    map[2][5].type = DEST;
-    map[2][6].type = DEST;
-    map[2][7].type = DEST;
 
-    map[1][2].type = WALL;
-    map[1][3].type = WALL;
-    map[1][4].type = WALL;
-    map[1][5].type = WALL;
-    map[1][6].type = WALL;
-    map[1][7].type = WALL;
-    map[1][8].type = WALL;
-    map[2][1].type = WALL;
-    map[2][2].type = WALL;
-    map[2][8].type = WALL;
-    map[3][1].type = WALL;
-    map[3][5].type = WALL;
-    map[3][6].type = WALL;
-    map[3][7].type = WALL;
-    map[3][8].type = WALL;
-    map[3][9].type = WALL;
-    map[3][10].type = WALL;
-    map[4][1].type = WALL;
-    map[4][10].type = WALL;
-    map[5][1].type = WALL;
-    map[5][2].type = WALL;
-    map[5][3].type = WALL;
-    map[5][10].type = WALL;
-    map[6][3].type = WALL;
-    map[6][4].type = WALL;
-    map[6][5].type = WALL;
-    map[6][10].type = WALL;
-    map[7][5].type = WALL;
-    map[7][6].type = WALL;
-    map[7][7].type = WALL;
-    map[7][8].type = WALL;
-    map[7][9].type = WALL;
-    map[7][10].type = WALL;
-    
-    for(int i = 0 ; i < 12; i ++) {
-        for(int j = 0; j < 12; j++) {
-            if(i == 0 || i == 11 || j == 0 || j == 11)
-                map[i][j].type = 4;
-        }
-    }
-    //
 }
 
 Map::~Map() {
@@ -202,6 +162,124 @@ Map::~Map() {
     delete[] map;
     // 박스 지움
     delete[] box;
+    history.clear();
+}
+
+void Map::loadMap(string path) {
+    ifstream mapfile;
+    mapfile.open(path);
+    
+    int x, y;
+    mapfile >> x;
+    mapfile >> y;
+    
+    myPos = {(unsigned char)x, (unsigned char)y};
+    
+    int boxSize;
+    mapfile >> boxSize;
+    
+    box = new Box[boxSize];
+    map = new Block *[10 + 2];
+    for (int i = 0; i < 10 + 2; i++)
+        map[i] = new Block[10 + 2];
+    
+    for(int i = 0; i < boxSize; i++) {
+        int row, col;
+        mapfile >> row;
+        mapfile >> col;
+        box[i].pos.row = (unsigned char)row;
+        box[i].pos.col = (unsigned char)col;
+    }
+    
+    for(int r = 1; r < 11; r++) {
+        for(int c = 1; c < 11; c++) {
+            int data;
+            mapfile >> data;
+            switch (data) {
+                case 6:
+                case ROAD:
+                    map[r][c].type = ROAD;
+                    break;
+                case DEST:
+                    map[r][c].type = DEST;
+                    break;
+                case WALL:
+                    map[r][c].type = WALL;
+                    break;
+                case 5:
+                    map[r][c].type = ROAD;
+                    for(int i = 0; i < boxSize; i++)
+                        if(box[i].pos.row == r && box[i].pos.col == c)
+                            map[r][c].box = &box[i];
+                    break;
+                case SPACE:
+                    map[r][c].type = SPACE;
+                    break;
+            }
+        }
+    }
+}
+
+bool Map::checkFinish() {
+    for(int r = 1; r < 11; r++) {
+        for(int c  = 1; c < 11; c++) {
+            if(map[r][c].type == DEST && map[r][c].box == nullptr)
+                return false;
+        }
+    }
+    return true;
+}
+
+bool Map::undo() {
+    if(history.size() == 0)
+        return false;
+    Log l = history.back();
+    switch (l.moveType) {
+        case 1:
+            // up
+            if(l.hasBox) {
+                Box *b = map[myPos.row-1][myPos.col].box;
+                b->pos.row --;
+                map[myPos.row-1][myPos.col].box = nullptr;
+                map[myPos.row][myPos.col].box = b;
+            }
+            myPos.row ++;
+            break;
+        case 2:
+            // down
+            if(l.hasBox) {
+                Box *b = map[myPos.row+1][myPos.col].box;
+                b->pos.row ++;
+                map[myPos.row+1][myPos.col].box = nullptr;
+                map[myPos.row][myPos.col].box = b;
+            }
+            myPos.row --;
+            break;
+        case 3:
+            // left
+            if(l.hasBox) {
+                Box *b = map[myPos.row][myPos.col-1].box;
+                b->pos.col ++;
+                map[myPos.row][myPos.col-1].box = nullptr;
+                map[myPos.row][myPos.col].box = b;
+            }
+            myPos.col ++;
+            break;
+        case 4:
+            // right
+            if(l.hasBox) {
+                Box *b = map[myPos.row][myPos.col+1].box;
+                b->pos.col --;
+                map[myPos.row][myPos.col+1].box = nullptr;
+                map[myPos.row][myPos.col].box = b;
+            }
+            myPos.col --;
+            break;
+        default:
+            break;
+    }
+    history.pop_back();
+    return true;
 }
 
 /*
@@ -212,7 +290,7 @@ Map::~Map() {
 3 1 1 1 3 3 3 3 3 3 // 2 = DESTINATION
 3 1 1 1 5 1 5 1 6 3 // 3 = WALL
 3 3 3 1 1 5 1 5 1 3 // 4 = SPACE
-4 4 3 3 3 4 4 4 4 3 // 5 = BOX
+4 4 3 3 3 1 1 1 1 3 // 5 = BOX
 4 4 4 4 3 3 3 3 3 3 // 6 = CHARACTER
 4 4 4 4 4 4 4 4 4 4
 4 4 4 4 4 4 4 4 4 4
