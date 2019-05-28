@@ -41,9 +41,11 @@
 ### visual studio 프로젝트와 연동하기!
 
 ![command](https://github.com/juheesvt/Pushbox/blob/master/kangjuhee/property.png?raw=true)
+
 우선 프로젝트 솔루션 탐색기에서 프로젝트에 마우스 커서를 올리고 우클릭후 속성을 클릭해서 프로젝트 설정에 들어갑니다.
 
 ![command](https://github.com/juheesvt/Pushbox/blob/master/kangjuhee/library_directory.png?raw=true)
+
 이후 포함디렉토리에 pdcurses의 root 경로를 추가해주고
 라이브러리 디렉토리에 pdcurses/win32 경로를 추가해줍니다.
 
