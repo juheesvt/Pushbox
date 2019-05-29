@@ -5,12 +5,17 @@
 #ifndef SOKOBAN_USER_H
 #define SOKOBAN_USER_H
 #include "../utils/define.h"
-
-class User {
+#include <curses.h>
+#include "Object.h"
+class User:public Object {
 private:
 	PRINT_CHAR CHARACTER[3] = "  ";
-	PRINT_COLOR COLOR = BLACK_BLACK;
-	int x, y;
+	PRINT_COLOR COLOR = RED_RED;
+public:
+	User(int x,int y,WINDOW *parentWindow);
+	~User();
+	virtual void render();
+	virtual void update(IN int key);
 };
 
 

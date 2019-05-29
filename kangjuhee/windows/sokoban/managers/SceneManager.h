@@ -19,10 +19,12 @@ public:
     void update(IN int key);
     void setNowScene(Pane * nowScene){
         if(this->nowScene !=NULL){
-			erase(); 
-			refresh();
             delete this->nowScene;
         }
+		if (nowScene == NULL) {
+			erase();
+			refresh();
+		}
         this->nowScene = nowScene;
     }
 };

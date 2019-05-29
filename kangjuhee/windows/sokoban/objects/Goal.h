@@ -5,12 +5,16 @@
 #ifndef SOKOBAN_GOAL_H
 #define SOKOBAN_GOAL_H
 #include "../utils/define.h"
-
-class Goal {
+#include "Object.h"
+class Goal:public Object {
 private:
 	PRINT_CHAR CHARACTER[3] = "  ";
 	PRINT_COLOR COLOR = BLUE_BLUE;
-	int x, y;
+public:
+	Goal(int x, int y, WINDOW *parentWindow);
+	~Goal();
+	virtual void render();
+	virtual void update(IN int key);
 };
 
 

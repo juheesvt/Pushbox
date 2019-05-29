@@ -4,7 +4,7 @@
 #include <string>
 #include <curses.h>
 #include "../panes/Pane.h"
-#include "../utils/FileManager.h"
+#include "../managers/GameManager.h"
 
 #define STRING std::string
 
@@ -15,9 +15,10 @@ public:
 	~GamePane();
 	virtual void render();// 영역을 그려주는 draw함는
 	virtual void update(IN int key);// 영역을 그려주는 draw함는
+	GameManager * getGameManager();
 
 private:
-	FileManager * mapData;
+	GameManager * gameManager;
 };
 
 #endif

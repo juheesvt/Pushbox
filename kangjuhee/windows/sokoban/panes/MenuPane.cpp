@@ -35,7 +35,7 @@ void MenuPane::update(IN int key){
 	else if (key == KEY_ENTER) {
 		switch(this->nowSelect){
 		case MENU_NEW_GAME:
-			this->sceneManager->setNowScene(new GameScene(0, 0, 70, 20, this->sceneManager));
+			this->sceneManager->setNowScene(new GameScene(0, 0, 60, 20, this->sceneManager));
 			break;
 		case MENU_RANKING:
 			break;

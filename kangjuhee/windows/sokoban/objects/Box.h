@@ -5,13 +5,16 @@
 #ifndef SOKOBAN_BOX_H
 #define SOKOBAN_BOX_H
 #include "../utils/define.h"
-
-class Box {
+#include "Object.h"
+class Box:public Object {
 private:
 	PRINT_CHAR CHARACTER[3] = "[]";
-	PRINT_COLOR COLOR = RED_GREEN;
-	int x, y;
-	
+	PRINT_COLOR COLOR = BRIGHT_BLUE_BRIGHT_BLUE;
+public:
+	Box(int x, int y, WINDOW *parentWindow);
+	~Box();
+	virtual void render();
+	virtual void update(IN int key);
 };
 
 
