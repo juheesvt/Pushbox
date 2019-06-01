@@ -3,7 +3,7 @@
 //
 
 #include "User.h"
-User::User(int x,int y,WINDOW *parentWindow) :Object(x,y,parentWindow) {}
+User::User(int x,int y,WINDOW *parentWindow,int type) :Object(x,y,parentWindow,type) {}
 User::~User() {}
 void User::render() {
 	wattron(this->parentWindow, COLOR_PAIR(this->COLOR));

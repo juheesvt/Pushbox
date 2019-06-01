@@ -1,7 +1,85 @@
-﻿  InfoPane.cpp
-c:\users\user\source\repos\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
-  c:\users\user\source\repos\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
-c:\users\user\source\repos\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
-  c:\users\user\source\repos\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
-c:\users\user\source\repos\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  sokoban.vcxproj -> C:\Users\user\source\repos\windows\Debug\sokoban.exe
+﻿  Main.cpp
+c:\users\juheesvt\desktop\windows\sokoban\main.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\panes\menupane.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  GameManager.cpp
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\gamemanager.cpp(29): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\juheesvt\desktop\windows\sokoban\managers\gamemanager.cpp(119): warning C4838: 'const int'에서 'unsigned int'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\juheesvt\desktop\windows\sokoban\managers\gamemanager.cpp(152): warning C4838: 'const int'에서 'unsigned int'(으)로의 변환에는 축소 변환이 필요합니다.
+  ObjectManager.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  SceneManager.cpp
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  Box.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  Goal.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  Object.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  Road.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  User.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  Wall.cpp
+c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+  GamePane.cpp
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  InfoPane.cpp
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  MenuPane.cpp
+c:\users\juheesvt\desktop\windows\sokoban\panes\menupane.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\panes\menupane.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Pane.cpp
+c:\users\juheesvt\desktop\windows\sokoban\panes\pane.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+  GameScene.cpp
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+  RankingScene.cpp
+  StartScene.cpp
+c:\users\juheesvt\desktop\windows\sokoban\scenes\startscene.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\define.h(12): warning C4005: 'KEY_ENTER': 매크로 재정의
+  c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\panes\menupane.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(22): warning C4150: 불완전한 형식 'Pane'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  c:\users\juheesvt\desktop\windows\sokoban\managers\scenemanager.h(11): note: 'Pane' 선언을 참조하십시오.
+  FileManager.cpp
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\juheesvt\desktop\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+LINK : warning LNK4098: 'LIBCMT' defaultlib가 다른 라이브러리와 충돌합니다. /NODEFAULTLIB:library를 사용하십시오.
+  sokoban.vcxproj -> C:\Users\juheeSVT\Desktop\windows\Debug\sokoban.exe

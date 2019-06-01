@@ -11,7 +11,7 @@ private:
 	PRINT_CHAR CHARACTER[3] = "[]";
 	PRINT_COLOR COLOR = BRIGHT_BLUE_BRIGHT_BLUE;
 public:
-	Box(int x, int y, WINDOW *parentWindow);
+	Box(int x, int y, WINDOW *parentWindow,int type);
 	~Box();
 	virtual void render();
 	virtual void update(IN int key);

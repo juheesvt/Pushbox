@@ -12,7 +12,7 @@ private:
 	PRINT_CHAR CHARACTER[3] = "  ";
 	PRINT_COLOR COLOR = RED_RED;
 public:
-	User(int x,int y,WINDOW *parentWindow);
+	User(int x,int y,WINDOW *parentWindow,int type);
 	~User();
 	virtual void render();
 	virtual void update(IN int key);

@@ -14,6 +14,11 @@
 #define DEQUE std::deque
 #define STRING std::string
 
+struct Command {
+	unsigned int type = NULL;
+	bool hasBox = false;
+};
+
 class GameManager
 {
 private:
@@ -24,20 +29,27 @@ private:
 	int moveCount;
 	int boxMoveCount;
 	int level;
-	DEQUE<int> command;
-	DEQUE<int> undoCommand;
+	DEQUE<Command> commands;
+	DEQUE<Command> undoCommands;
 
 public:
 	GameManager(WINDOW *parentWindow);
 	~GameManager();
+	void init();
 	void update(IN int key);
 	void render();
-	void undo();
-	void redo();
+	void move(IN int key,bool undoClear);
+	bool checkFinish();
+
+	bool undo();
+	bool redo();
+
 	int getMoveCount();
 	int getBoxCount();
 	int getLevel();
-	void init();
+
+	void nextLevel();
+
 };
 #endif
 

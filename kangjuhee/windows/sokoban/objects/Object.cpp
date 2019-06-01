@@ -2,7 +2,7 @@
 
 
 
-Object::Object(int x,int y,WINDOW *parentWindow):x(x),y(y),parentWindow(parentWindow)
+Object::Object(int x,int y,WINDOW *parentWindow,int type):x(x),y(y),parentWindow(parentWindow),type(type)
 {
 }
 

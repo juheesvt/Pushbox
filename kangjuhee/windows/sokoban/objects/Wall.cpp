@@ -2,7 +2,7 @@
 
 
 
-Wall::Wall(int x,int y,WINDOW *parentWindow):Object(x,y,parentWindow)
+Wall::Wall(int x,int y,WINDOW *parentWindow,int type):Object(x,y,parentWindow,type)
 {
 }
 

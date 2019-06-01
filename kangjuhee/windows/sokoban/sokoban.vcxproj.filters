@@ -175,5 +175,14 @@
     <None Include="datas\info.dat">
       <Filter>리소스 파일\datas</Filter>
     </None>
+    <None Include="datas\map3.dat">
+      <Filter>리소스 파일\datas</Filter>
+    </None>
+    <None Include="datas\map4.dat">
+      <Filter>리소스 파일\datas</Filter>
+    </None>
+    <None Include="datas\map5.dat">
+      <Filter>리소스 파일\datas</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -21,6 +21,8 @@
 #define SPACE 4
 #define BOX 5
 #define USER 6
+#define BOX_ON_DEST 7
+#define USER_ON_DEST 8
 
 
 #define BLACK_WHITE 1
@@ -39,6 +41,8 @@
 
 #define COLOR_BRIGHT_BLUE 9
 
+#define MAP_MAX_SIZE 11
+#define MAP_MIN_SIZE 1
 
 
 #endif //SOKOBAN_DEFINE_H

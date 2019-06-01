@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\user\source\repos\windows\sokoban\pdcurs34;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\user\source\repos\windows\sokoban\pdcurs34\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\juheeSVT\Desktop\windows\sokoban\pdcurs34;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\juheeSVT\Desktop\windows\sokoban\pdcurs34\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -196,6 +196,9 @@
     <None Include="datas\info.dat" />
     <None Include="datas\map1.dat" />
     <None Include="datas\map2.dat" />
+    <None Include="datas\map3.dat" />
+    <None Include="datas\map4.dat" />
+    <None Include="datas\map5.dat" />
     <None Include="datas\menu.dat" />
     <None Include="datas\startscene.dat" />
   </ItemGroup>

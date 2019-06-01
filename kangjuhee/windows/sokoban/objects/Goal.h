@@ -11,7 +11,7 @@ private:
 	PRINT_CHAR CHARACTER[3] = "  ";
 	PRINT_COLOR COLOR = BLUE_BLUE;
 public:
-	Goal(int x, int y, WINDOW *parentWindow);
+	Goal(int x, int y, WINDOW *parentWindow,int type);
 	~Goal();
 	virtual void render();
 	virtual void update(IN int key);

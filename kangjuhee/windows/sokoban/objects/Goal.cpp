@@ -3,7 +3,7 @@
 //
 
 #include "Goal.h"
-Goal::Goal(int x, int y, WINDOW *parentWindow) :Object(x, y, parentWindow)
+Goal::Goal(int x, int y, WINDOW *parentWindow,int type) :Object(x, y, parentWindow,type)
 {
 }
 

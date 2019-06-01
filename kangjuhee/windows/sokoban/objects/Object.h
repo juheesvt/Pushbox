@@ -9,7 +9,7 @@ protected:
 	WINDOW *parentWindow;
 	int type;
 public:
-	Object(int x, int y, WINDOW *parentWindow);
+	Object(int x, int y, WINDOW *parentWindow,int type);
 	~Object();
 	int getX();
 	int getY();

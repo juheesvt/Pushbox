@@ -1,7 +1,8 @@
 #ifndef SOKOBAN_OBJECTMANAGER_H
 #define SOKOBAN_OBJECTMANAGER_H
-#include <map>
+#include <vector>
 #include <utility>
+#include <algorithm>
 #include "../objects/Object.h"
 
 #include "../objects/Wall.h"
@@ -10,7 +11,7 @@
 #include "../objects/Goal.h"
 #include "../objects/Road.h"
 
-#define MAP std::map
+#define VECTOR std::vector
 #define PAIR std::pair
 #define MAKE_PAIR std::make_pair
 class ObjectManager {
@@ -20,7 +21,8 @@ public:
 	void render();
 	Object* getObject(int x, int y);
 	void insertObject(Object *object);
+	void deleteObject(Object *object);
 private:
-	MAP<PAIR<int, int>, Object *> map;
+	VECTOR<Object *> map;
 };
 #endif

@@ -1,5 +1,5 @@
 #include "Road.h"
-Road::Road(int x, int y, WINDOW *parentWindow) :Object(x, y, parentWindow)
+Road::Road(int x, int y, WINDOW *parentWindow,int type) :Object(x, y, parentWindow,type)
 {
 }
 

@@ -3,7 +3,7 @@
 //
 
 #include "Box.h"
-Box::Box(int x, int y, WINDOW *parentWindow) :Object(x, y, parentWindow)
+Box::Box(int x, int y, WINDOW *parentWindow,int type) :Object(x, y, parentWindow,type)
 {
 }
 
