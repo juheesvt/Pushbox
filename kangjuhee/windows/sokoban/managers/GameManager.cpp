@@ -56,6 +56,8 @@ GameManager::~GameManager()
 }
 
 void GameManager::move(IN int key,bool undoClear=true) {
+	this->user->setStatus(T_T);
+
 	int xDelta = 0;
 	int yDelta = 0;
 
@@ -83,6 +85,8 @@ void GameManager::move(IN int key,bool undoClear=true) {
 			) {
 			Object *doubleNextObj = this->objectManager->getObject(this->user->getX() + xDelta*2, this->user->getY() +yDelta * 2);
 			if (doubleNextObj != NULL && (doubleNextObj->getType() == ROAD || doubleNextObj->getType() == DEST)) {
+				this->user->setStatus(DEFAULT);
+
 				nextObj->setY(doubleNextObj->getY());
 				nextObj->setX(doubleNextObj->getX());
 
@@ -95,6 +99,7 @@ void GameManager::move(IN int key,bool undoClear=true) {
 				}
 				if (doubleNextObj->getType() == DEST) {
 					nextObj->setType(BOX_ON_DEST);
+					this->user->setStatus(SUCCESS);
 				}
 				else {
 					nextObj->setType(BOX);
@@ -121,9 +126,13 @@ void GameManager::move(IN int key,bool undoClear=true) {
 				if(undoClear)
 					this->undoCommands.clear();
 			}
+			
 		}
+		
 	}
 	else if (nextObj != NULL && (nextObj->getType() == ROAD || nextObj->getType() == DEST)) {
+		this->user->setStatus(DEFAULT);
+
 		int userType = this->user->getType();
 		if (nextObj->getType() == DEST) {
 			this->user->setType(USER_ON_DEST);
@@ -153,9 +162,12 @@ void GameManager::move(IN int key,bool undoClear=true) {
 		this->commands.push_back(command);
 		if (undoClear)
 			this->undoCommands.clear();
+		
 	}
+
 }
 bool GameManager::checkFinish() {
+
 	for (int row = 1; row < MAP_MAX_SIZE; ++row) {
 		for (int col = 1; col < MAP_MAX_SIZE; ++col) {
 			Object *object = this->objectManager->getObject(col,row);
@@ -175,10 +187,8 @@ void GameManager::nextLevel() {
 }
 
 void GameManager::update(IN int key) {
-	if (key == 'S' || key == 's') {
-		this->nextLevel();
-	}
-	else if (key == KEY_LEFT) {
+
+	if (key == KEY_LEFT) {
 		this->move(key);
 	}
 	else if (key == KEY_RIGHT) {
@@ -197,7 +207,8 @@ void GameManager::update(IN int key) {
 		this->redo();
 	}
 	if (this->checkFinish()) {
-		this->nextLevel();
+		if(key == 'S' || key == 's')
+			this->nextLevel();
 	}
 }
 void GameManager::render() {
@@ -235,6 +246,8 @@ bool GameManager::undo() {
 	}
 	Object *object = this->objectManager->getObject(this->user->getX()-xDelta, this->user->getY() - yDelta);
 
+
+	// 박스를 옮겼을 때
 	if (command.hasBox) {
 		Box *box = (Box *)this->objectManager->getObject(this->user->getX() + xDelta, this->user->getY() + yDelta);
 		Object  *beforeObj = this->objectManager->getObject(this->user->getX() - xDelta, this->user->getY() - yDelta );
@@ -251,6 +264,14 @@ bool GameManager::undo() {
 			this->objectManager->insertObject(new Goal(box->getX(), box->getY(), this->parentWindow, DEST));
 		}
 		else {
+			// user 이전 위치가 load인지 goal인지 확인하는 작업
+			if (beforeObj->getType() == ROAD) {
+				user->setType(USER);
+			}
+			else if (beforeObj->getType() == DEST) {
+				user->setType(USER_ON_DEST);
+			}
+
 			beforeObj->setY(box->getY());
 			beforeObj->setX(box->getX());
 		}

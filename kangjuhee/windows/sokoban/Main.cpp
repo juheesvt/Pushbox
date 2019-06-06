@@ -15,7 +15,6 @@ int main() {
 		keypad(stdscr, true);
 
 		key = getch();
-
 		sceneManager->update(key);
 		sceneManager->render();
 	}
@@ -41,11 +40,14 @@ void init() {
 	init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
 	init_pair(WHITE_YELLO, COLOR_WHITE, COLOR_YELLOW);
 	init_pair(WHITE_BLACK, COLOR_WHITE, COLOR_BLACK);
+	init_pair(WHITE_CYAN, COLOR_WHITE, COLOR_CYAN);
+	init_pair(WHITE_RED, COLOR_WHITE, COLOR_RED);
+	
 
 	curs_set(0);
 	cbreak();
 	noecho();
-	nodelay(stdscr, TRUE);
+	//nodelay(stdscr, TRUE);
 	scrollok(stdscr, TRUE);
 
 	refresh();

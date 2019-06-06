@@ -14,8 +14,8 @@
 #define DEQUE std::deque
 #define STRING std::string
 
-struct Command {
-	unsigned int type = NULL;
+struct Command {				// command pattern -> undo, redo
+	int type = NULL;			
 	bool hasBox = false;
 };
 

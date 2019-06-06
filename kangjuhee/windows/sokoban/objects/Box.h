@@ -8,8 +8,8 @@
 #include "Object.h"
 class Box:public Object {
 private:
-	PRINT_CHAR CHARACTER[3] = "[]";
-	PRINT_COLOR COLOR = BRIGHT_BLUE_BRIGHT_BLUE;
+	PRINT_CHAR CHARACTER[4] = "[ ]";
+	PRINT_COLOR COLOR = WHITE_CYAN;
 public:
 	Box(int x, int y, WINDOW *parentWindow,int type);
 	~Box();

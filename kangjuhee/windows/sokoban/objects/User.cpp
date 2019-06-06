@@ -3,13 +3,13 @@
 //
 
 #include "User.h"
-User::User(int x,int y,WINDOW *parentWindow,int type) :Object(x,y,parentWindow,type) {}
+User::User(int x,int y,WINDOW *parentWindow,int type) :Object(x,y,parentWindow,type) {
+	this->status = DEFAULT;
+}
 User::~User() {}
 void User::render() {
 	wattron(this->parentWindow, COLOR_PAIR(this->COLOR));
-	mvwprintw(this->parentWindow, this->y , this->x*2, (char *)this->CHARACTER);
+	mvwprintw(this->parentWindow, this->y, this->x*PIXEL_SIZE, (char *)this->CHARACTER[this->status]);
 	wattroff(this->parentWindow, COLOR_PAIR(this->COLOR));
 }
-void User::update(IN int key) {
-
-}
+void User::update(IN int key) {}

@@ -161,6 +161,7 @@
     <ClInclude Include="objects\User.h" />
     <ClInclude Include="objects\Wall.h" />
     <ClInclude Include="panes\GamePane.h" />
+    <ClInclude Include="panes\GuidePane.h" />
     <ClInclude Include="panes\InfoPane.h" />
     <ClInclude Include="panes\MenuPane.h" />
     <ClInclude Include="panes\Pane.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="objects\User.cpp" />
     <ClCompile Include="objects\Wall.cpp" />
     <ClCompile Include="panes\GamePane.cpp" />
+    <ClCompile Include="panes\GuidePane.cpp" />
     <ClCompile Include="panes\InfoPane.cpp" />
     <ClCompile Include="panes\MenuPane.cpp" />
     <ClCompile Include="panes\Pane.cpp" />
@@ -193,6 +195,7 @@
     <ClCompile Include="utils\FileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="datas\guide.dat" />
     <None Include="datas\info.dat" />
     <None Include="datas\map1.dat" />
     <None Include="datas\map2.dat" />

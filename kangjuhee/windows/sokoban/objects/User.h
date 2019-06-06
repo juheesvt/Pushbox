@@ -5,18 +5,25 @@
 #ifndef SOKOBAN_USER_H
 #define SOKOBAN_USER_H
 #include "../utils/define.h"
+
+#define DEFAULT 0
+#define T_T 1
+#define SUCCESS 2
+
 #include <curses.h>
 #include "Object.h"
 class User:public Object {
 private:
-	PRINT_CHAR CHARACTER[3] = "  ";
-	PRINT_COLOR COLOR = RED_RED;
+	int status;
+	PRINT_CHAR CHARACTER[3][4] = { "+_+" ,"T_T",">_<" };
+	PRINT_COLOR COLOR = WHITE_RED;
 public:
 	User(int x,int y,WINDOW *parentWindow,int type);
 	~User();
 	virtual void render();
 	virtual void update(IN int key);
+	void setStatus(int status) {	this->status = status;		}
 };
 
 
-#endif //SOKOBAN_USER_H
+#endif

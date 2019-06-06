@@ -6,7 +6,7 @@
 class Wall:public Object
 {
 private:
-	PRINT_CHAR CHARACTER[3] = "  ";
+	PRINT_CHAR CHARACTER[4] = "   ";
 	PRINT_COLOR COLOR = BLACK_BLACK;
 public:
 	Wall(int x, int y, WINDOW *parentWindow,int type);

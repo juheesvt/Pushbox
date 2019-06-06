@@ -6,7 +6,7 @@
 class Road :public Object
 {
 private:
-	PRINT_CHAR CHARACTER[3] = "  ";
+	PRINT_CHAR CHARACTER[4] = "   ";
 	PRINT_COLOR COLOR = WHITE_WHITE;
 public:
 	Road(int x, int y, WINDOW *parentWindow,int type);

@@ -10,6 +10,7 @@
 #include "../utils/FileManager.h"
 #include "../panes/GamePane.h"
 #include "../panes/InfoPane.h"
+#include "../panes/GuidePane.h"
 
 class GameScene :public Pane {
 public:
@@ -22,6 +23,8 @@ private:
 	int             width, height;
 	GamePane		*gamePane;
 	InfoPane		*infoPane;
+	GuidePane		*guidePane;
+
 };
 
 

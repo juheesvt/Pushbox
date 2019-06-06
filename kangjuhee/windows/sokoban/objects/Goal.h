@@ -8,7 +8,7 @@
 #include "Object.h"
 class Goal:public Object {
 private:
-	PRINT_CHAR CHARACTER[3] = "  ";
+	PRINT_CHAR CHARACTER[4] = " @ ";
 	PRINT_COLOR COLOR = BLUE_BLUE;
 public:
 	Goal(int x, int y, WINDOW *parentWindow,int type);

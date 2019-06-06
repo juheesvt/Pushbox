@@ -5,6 +5,7 @@ InfoPane::InfoPane(int x, int y, int width, int height, SceneManager * sceneMana
 {
 	this->infoData = new FileManager("datas/info.dat");
 
+
 }
 InfoPane::~InfoPane() {}
 void InfoPane::render() {
@@ -16,6 +17,7 @@ void InfoPane::render() {
 	mvwprintw(this->getWindow(), 1, 7, TO_STRING(this->level).c_str());
 	mvwprintw(this->getWindow(), 1, 15, TO_STRING(this->moveCount).c_str());
 	mvwprintw(this->getWindow(), 1, 24, TO_STRING(this->boxMoveCount).c_str());
+	mvwprintw(this->getWindow(), 1, 30,this->message.c_str());
 	wattroff(this->getWindow(), COLOR_PAIR(WHITE_BLACK));
 	wrefresh(this->getWindow());
 
@@ -29,4 +31,7 @@ void InfoPane::setBoxMoveCount(int boxMoveCount) {
 }
 void InfoPane::setMoveCount(int moveCount) {
 	this->moveCount = moveCount;
+}
+void InfoPane::setMessage(STRING message) {
+	this->message = message;
 }

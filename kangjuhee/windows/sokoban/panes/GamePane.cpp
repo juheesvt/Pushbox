@@ -5,6 +5,7 @@ GamePane::GamePane(int x, int y, int width, int height, SceneManager *sceneManag
 	wborder(this->pWindow, '|', '|', '-', '-', '*', '*', '*', '*');
 	wrefresh(this->pWindow);
 	this->gameManager = new GameManager(this->pWindow);
+	this->gameManager->update(NULL);
 	
 }
 GamePane::~GamePane() {

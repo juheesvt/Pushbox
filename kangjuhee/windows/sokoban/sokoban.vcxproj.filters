@@ -102,6 +102,9 @@
     <ClInclude Include="panes\InfoPane.h">
       <Filter>헤더 파일\panes</Filter>
     </ClInclude>
+    <ClInclude Include="panes\GuidePane.h">
+      <Filter>헤더 파일\panes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -158,6 +161,9 @@
     <ClCompile Include="panes\InfoPane.cpp">
       <Filter>소스 파일\panes</Filter>
     </ClCompile>
+    <ClCompile Include="panes\GuidePane.cpp">
+      <Filter>소스 파일\panes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="datas\menu.dat">
@@ -182,6 +188,9 @@
       <Filter>리소스 파일\datas</Filter>
     </None>
     <None Include="datas\map5.dat">
+      <Filter>리소스 파일\datas</Filter>
+    </None>
+    <None Include="datas\guide.dat">
       <Filter>리소스 파일\datas</Filter>
     </None>
   </ItemGroup>

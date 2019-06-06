@@ -38,11 +38,16 @@
 #define WHITE_WHITE 11
 #define WHITE_YELLO 12
 #define WHITE_BLACK 13
+#define WHITE_CYAN 14
+#define WHITE_RED 15
+
 
 #define COLOR_BRIGHT_BLUE 9
 
 #define MAP_MAX_SIZE 11
 #define MAP_MIN_SIZE 1
+
+#define PIXEL_SIZE 3
 
 
 #endif //SOKOBAN_DEFINE_H
