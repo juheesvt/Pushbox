@@ -2,5 +2,5 @@
 c:\users\juheesvt\desktop\test\pushbox\kangjuhee\windows\sokoban\utils\filemanager.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 c:\users\juheesvt\desktop\windows\sokoban\pdcurs34\curses.h(641): warning C4005: 'KEY_ENTER': 매크로 재정의
   c:\users\juheesvt\desktop\test\pushbox\kangjuhee\windows\sokoban\utils\define.h(12): note: 'KEY_ENTER'의 이전 정의를 참조하십시오.
-c:\users\juheesvt\desktop\test\pushbox\kangjuhee\windows\sokoban\managers\gamemanager.cpp(29): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\juheesvt\desktop\test\pushbox\kangjuhee\windows\sokoban\managers\gamemanager.cpp(30): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   sokoban.vcxproj -> C:\Users\juheeSVT\Desktop\test\Pushbox\kangjuhee\windows\Debug\sokoban.exe

@@ -37,7 +37,7 @@ void GameManager::init() {
 				break;
 			case USER:
 				this->user = new User(ri / 2 + 1, mi + 1, this->parentWindow, USER);
-				objectManager->insertObject(new Road(ri / 2 + 1, mi + 1, this->parentWindow, ROAD));
+				//objectManager->insertObject(new Road(ri / 2 + 1, mi + 1, this->parentWindow, ROAD));
 				break;
 			case BOX:
 				objectManager->insertObject(new Box(ri / 2 + 1, mi + 1, this->parentWindow, BOX));
@@ -260,7 +260,7 @@ bool GameManager::undo() {
 	if (command.hasBox) {
 		Box *box = (Box *)this->objectManager->getObject(this->user->getX() + xDelta, this->user->getY() + yDelta);
 		Object  *beforeObj = this->objectManager->getObject(this->user->getX() - xDelta, this->user->getY() - yDelta);
-
+			
 		int userType = this->user->getType();
 		if (beforeObj->getType() == DEST && box->getType() == BOX) {
 			this->user->setType(USER_ON_DEST);
