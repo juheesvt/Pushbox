@@ -176,6 +176,17 @@ bool GameManager::checkFinish() {
 			}
 		}
 	}
+
+
+	
+	Rank * temp = rank.GetRanking();
+
+	if (temp->move_count > 0 && temp->move_count + temp->box_count > this->moveCount + this->boxMoveCount)
+		rank.SetRanking(this->level, this->moveCount, this->boxMoveCount);
+
+	else if (temp->move_count == 0)
+		rank.SetRanking(this->level, this->moveCount, this->boxMoveCount);
+
 	return true;
 }
 void GameManager::nextLevel() {

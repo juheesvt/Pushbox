@@ -105,6 +105,9 @@
     <ClInclude Include="panes\GuidePane.h">
       <Filter>헤더 파일\panes</Filter>
     </ClInclude>
+    <ClInclude Include="utils\Ranking.h">
+      <Filter>헤더 파일\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -164,6 +167,9 @@
     <ClCompile Include="panes\GuidePane.cpp">
       <Filter>소스 파일\panes</Filter>
     </ClCompile>
+    <ClCompile Include="utils\Ranking.cpp">
+      <Filter>소스 파일\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="datas\menu.dat">
@@ -193,5 +199,13 @@
     <None Include="datas\guide.dat">
       <Filter>리소스 파일\datas</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="utils\rank.txt">
+      <Filter>헤더 파일\utils</Filter>
+    </Text>
+    <Text Include="datas\rank.txt">
+      <Filter>리소스 파일\datas</Filter>
+    </Text>
   </ItemGroup>
 </Project>

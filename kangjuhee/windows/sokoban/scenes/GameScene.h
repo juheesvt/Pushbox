@@ -29,4 +29,4 @@ private:
 
 
 
-#endif //SOKOBAN_GAMESCENE_H
+#endif

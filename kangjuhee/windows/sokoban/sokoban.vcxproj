@@ -92,7 +92,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,6 +170,7 @@
     <ClInclude Include="scenes\StartScene.h" />
     <ClInclude Include="utils\define.h" />
     <ClInclude Include="utils\FileManager.h" />
+    <ClInclude Include="utils\Ranking.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -193,6 +194,7 @@
     <ClCompile Include="scenes\RankingScene.cpp" />
     <ClCompile Include="scenes\StartScene.cpp" />
     <ClCompile Include="utils\FileManager.cpp" />
+    <ClCompile Include="utils\Ranking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="datas\guide.dat" />
@@ -204,6 +206,10 @@
     <None Include="datas\map5.dat" />
     <None Include="datas\menu.dat" />
     <None Include="datas\startscene.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="datas\rank.txt" />
+    <Text Include="utils\rank.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

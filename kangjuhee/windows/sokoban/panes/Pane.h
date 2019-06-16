@@ -6,6 +6,7 @@
 #define SOKOBAN_PANE_H
 
 #include <curses.h>
+#include <iostream>
 #include "../utils/define.h"
 #include "../managers/SceneManager.h"
 class SceneManager;

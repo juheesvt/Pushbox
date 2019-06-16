@@ -4,6 +4,7 @@
 
 #include "MenuPane.h"
 #include "../scenes/GameScene.h"
+#include "../scenes/RankingScene.h"
 
 MenuPane::MenuPane(int x, int y, int width, int height,SceneManager *sceneManager):Pane(x,y,width,height,sceneManager) {
     this->menuData=new FileManager("datas/menu.dat"); // 파 일경 로알아보
@@ -38,6 +39,7 @@ void MenuPane::update(IN int key){
 			this->sceneManager->setNowScene(new GameScene(0, 0, 70, 20, this->sceneManager));
 			break;
 		case MENU_RANKING:
+			this->sceneManager->setNowScene(new RankingScene(0, 0, 70, 20, this->sceneManager));
 			break;
 		case MENU_QUIT:
 			this->sceneManager->setNowScene(NULL);

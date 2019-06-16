@@ -4,6 +4,7 @@
 #include "../utils/FileManager.h"
 #include "ObjectManager.h"
 #include "../objects/User.h"
+#include "../utils/Ranking.h"
 
 #include <string>
 #include <curses.h>
@@ -26,6 +27,7 @@ private:
 	ObjectManager *objectManager;
 	WINDOW *parentWindow;
 	User *user;
+	Ranking rank;
 	int moveCount;
 	int boxMoveCount;
 	int level;

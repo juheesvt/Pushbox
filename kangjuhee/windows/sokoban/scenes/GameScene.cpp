@@ -3,6 +3,8 @@
 //
 
 #include "GameScene.h"
+
+
 GameScene::GameScene(int x, int y, int width, int height, SceneManager *sceneManager) :Pane(x, y, width, height, sceneManager) {
 	erase();
 	refresh();
@@ -32,6 +34,7 @@ void GameScene::update(IN int key) {
 
 	if (this->gamePane->getGameManager()->checkFinish()) 
 		this->infoPane->setMessage("SUCCESS!!");
+
 	else 
 		this->infoPane->setMessage("");
 }

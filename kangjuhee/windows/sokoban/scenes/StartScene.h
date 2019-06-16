@@ -24,4 +24,4 @@ private:
 };
 
 
-#endif SOKOBAN_STARTSCENE_H
+#endif
