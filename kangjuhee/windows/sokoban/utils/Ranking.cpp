@@ -34,8 +34,8 @@ void Ranking::SetRanking(int level, int move, int box) {
 }
 
 void Ranking::Save() {
-	ofstream out("rank.txt");
-	for (int i = 0; i < 10; i++) {
+	ofstream out("./datas/rank.txt");
+	for (int i = 0; i < 5; i++) {
 		out << ranklist[i].move_count << " " << ranklist[i].box_count << endl;
 	}
 	out.close();

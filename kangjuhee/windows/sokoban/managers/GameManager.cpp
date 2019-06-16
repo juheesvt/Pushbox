@@ -9,6 +9,7 @@ GameManager::GameManager(WINDOW *parentWindow) :parentWindow(parentWindow)
 	init();
 }
 void GameManager::init() {
+
 	wclear(this->parentWindow);
 	wbkgd(this->parentWindow, COLOR_PAIR(WHITE_YELLO));
 	wborder(this->parentWindow, '|', '|', '-', '-', '*', '*', '*', '*');
@@ -17,10 +18,10 @@ void GameManager::init() {
 
 	this->commands.clear();
 	this->undoCommands.clear();
-	
-	if(this->objectManager != NULL)
+
+	if (this->objectManager != NULL)
 		delete this->objectManager;
-	
+
 	this->objectManager = new ObjectManager();
 	this->gameMapData = new FileManager("datas/map" + TO_STRING(this->level) + ".dat");
 
@@ -55,7 +56,7 @@ GameManager::~GameManager()
 	delete this->objectManager;
 }
 
-void GameManager::move(IN int key,bool undoClear=true) {
+void GameManager::move(IN int key, bool undoClear = true) {
 	this->user->setStatus(T_T);
 
 	int xDelta = 0;
@@ -83,7 +84,7 @@ void GameManager::move(IN int key,bool undoClear=true) {
 			&& this->user->getX() - 2 > MAP_MIN_SIZE
 			&& this->user->getX() + 2 < MAP_MAX_SIZE
 			) {
-			Object *doubleNextObj = this->objectManager->getObject(this->user->getX() + xDelta*2, this->user->getY() +yDelta * 2);
+			Object *doubleNextObj = this->objectManager->getObject(this->user->getX() + xDelta * 2, this->user->getY() + yDelta * 2);
 			if (doubleNextObj != NULL && (doubleNextObj->getType() == ROAD || doubleNextObj->getType() == DEST)) {
 				this->user->setStatus(DEFAULT);
 
@@ -108,7 +109,7 @@ void GameManager::move(IN int key,bool undoClear=true) {
 					this->objectManager->deleteObject(doubleNextObj);
 					this->objectManager->insertObject(new Road(this->user->getX(), this->user->getY(), this->parentWindow, ROAD));
 				}
-				else if (doubleNextObj->getType() == ROAD && userType== USER_ON_DEST) {
+				else if (doubleNextObj->getType() == ROAD && userType == USER_ON_DEST) {
 					this->objectManager->deleteObject(doubleNextObj);
 					this->objectManager->insertObject(new Goal(this->user->getX(), this->user->getY(), this->parentWindow, DEST));
 				}
@@ -116,19 +117,19 @@ void GameManager::move(IN int key,bool undoClear=true) {
 					doubleNextObj->setY(this->user->getY());
 					doubleNextObj->setX(this->user->getX());
 				}
-				this->user->setX(this->user->getX()+xDelta);
-				this->user->setY(this->user->getY()+yDelta);
+				this->user->setX(this->user->getX() + xDelta);
+				this->user->setY(this->user->getY() + yDelta);
 				this->moveCount++;
 				this->boxMoveCount++;
 
 				Command command = { key, true };
 				this->commands.push_back(command);
-				if(undoClear)
+				if (undoClear)
 					this->undoCommands.clear();
 			}
-			
+
 		}
-		
+
 	}
 	else if (nextObj != NULL && (nextObj->getType() == ROAD || nextObj->getType() == DEST)) {
 		this->user->setStatus(DEFAULT);
@@ -141,7 +142,7 @@ void GameManager::move(IN int key,bool undoClear=true) {
 			this->user->setType(USER);
 		}
 
-		if (userType== USER_ON_DEST && nextObj->getType() == ROAD) {
+		if (userType == USER_ON_DEST && nextObj->getType() == ROAD) {
 			this->objectManager->deleteObject(nextObj);
 			this->objectManager->insertObject(new Goal(this->user->getX(), this->user->getY(), this->parentWindow, DEST));
 		}
@@ -149,20 +150,20 @@ void GameManager::move(IN int key,bool undoClear=true) {
 			this->objectManager->deleteObject(nextObj);
 			this->objectManager->insertObject(new Road(this->user->getX(), this->user->getY(), this->parentWindow, ROAD));
 		}
-		else{
+		else {
 			nextObj->setX(this->user->getX());
 			nextObj->setY(this->user->getY());
 		}
 		this->user->setX(this->user->getX() + xDelta);
 		this->user->setY(this->user->getY() + yDelta);
-		
+
 		this->moveCount++;
 
 		Command command = { key, false };
 		this->commands.push_back(command);
 		if (undoClear)
 			this->undoCommands.clear();
-		
+
 	}
 
 }
@@ -170,27 +171,25 @@ bool GameManager::checkFinish() {
 
 	for (int row = 1; row < MAP_MAX_SIZE; ++row) {
 		for (int col = 1; col < MAP_MAX_SIZE; ++col) {
-			Object *object = this->objectManager->getObject(col,row);
+			Object *object = this->objectManager->getObject(col, row);
 			if (object != NULL && object->getType() == BOX) {
 				return false;
 			}
 		}
 	}
 
+	Rank temp = rank.GetRanking()[this->level - 1];
 
-	
-	Rank * temp = rank.GetRanking();
-
-	if (temp->move_count > 0 && temp->move_count + temp->box_count > this->moveCount + this->boxMoveCount)
+	if (temp.move_count > 0 && temp.move_count + temp.box_count > this->moveCount + this->boxMoveCount)
 		rank.SetRanking(this->level, this->moveCount, this->boxMoveCount);
 
-	else if (temp->move_count == 0)
+	else if (temp.move_count == 0)
 		rank.SetRanking(this->level, this->moveCount, this->boxMoveCount);
 
 	return true;
 }
 void GameManager::nextLevel() {
-	this->level = (this->level + 1) % 11;
+	this->level = (this->level + 1) % 6;
 	if (this->level == 0) {
 		this->level = 1;
 	}
@@ -206,7 +205,7 @@ void GameManager::update(IN int key) {
 		this->move(key);
 	}
 	else if (key == KEY_UP) {
-		this->move( key);
+		this->move(key);
 	}
 	else if (key == KEY_DOWN) {
 		this->move(key);
@@ -218,7 +217,7 @@ void GameManager::update(IN int key) {
 		this->redo();
 	}
 	if (this->checkFinish()) {
-		if(key == 'S' || key == 's')
+		if (key == 'S' || key == 's')
 			this->nextLevel();
 	}
 }
@@ -230,7 +229,7 @@ bool GameManager::redo() {
 	if (this->undoCommands.size() == 0)
 		return false;
 	Command command = this->undoCommands.back();
-	move(command.type,false);
+	move(command.type, false);
 	this->undoCommands.pop_back();
 	return true;
 }
@@ -255,14 +254,13 @@ bool GameManager::undo() {
 		xDelta = 1;
 		break;
 	}
-	Object *object = this->objectManager->getObject(this->user->getX()-xDelta, this->user->getY() - yDelta);
+	Object *object = this->objectManager->getObject(this->user->getX() - xDelta, this->user->getY() - yDelta);
 
 
-	// 박스를 옮겼을 때
 	if (command.hasBox) {
 		Box *box = (Box *)this->objectManager->getObject(this->user->getX() + xDelta, this->user->getY() + yDelta);
-		Object  *beforeObj = this->objectManager->getObject(this->user->getX() - xDelta, this->user->getY() - yDelta );
-		
+		Object  *beforeObj = this->objectManager->getObject(this->user->getX() - xDelta, this->user->getY() - yDelta);
+
 		int userType = this->user->getType();
 		if (beforeObj->getType() == DEST && box->getType() == BOX) {
 			this->user->setType(USER_ON_DEST);
@@ -290,7 +288,7 @@ bool GameManager::undo() {
 		box->setX(box->getX() - xDelta);
 		box->setY(box->getY() - yDelta);
 
-		if (userType== USER_ON_DEST) {
+		if (userType == USER_ON_DEST) {
 			box->setType(BOX_ON_DEST);
 		}
 		else {
@@ -299,7 +297,7 @@ bool GameManager::undo() {
 		this->boxMoveCount -= 1;
 
 	}
-	else{
+	else {
 		if (object->getType() == DEST && this->user->getType() == USER) {
 			this->user->setType(USER_ON_DEST);
 			this->objectManager->deleteObject(object);

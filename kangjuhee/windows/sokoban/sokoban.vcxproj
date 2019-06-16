@@ -209,7 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="datas\rank.txt" />
-    <Text Include="utils\rank.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -201,9 +201,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="utils\rank.txt">
-      <Filter>헤더 파일\utils</Filter>
-    </Text>
     <Text Include="datas\rank.txt">
       <Filter>리소스 파일\datas</Filter>
     </Text>
